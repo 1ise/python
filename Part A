@@ -1,32 +1,8 @@
 Python Lab Programs on functions:
-    1. Write a python program to test if a word contains three consecutive double letters.
-
-def is_triple_double(word):
-    i = 0
-    count = 0
-    while i < len(word)-1:
-        if word[i] == word[i+1]:
-            count = count + 1
-            if count == 3:
-                return True
-            i = i + 2
-        else:
-            i = i + 1
-    return False
+   
 
 
-def find_triple_double():
-    fin = input("Enter a word: ")
-           
-    res=is_triple_double(fin)
-    if res:
-       print("Three consecutive double letter found in word:",fin)
-    else:
-        print("Three consecutive double letter not found in word:",fin)
-
-
-find_triple_double()
-    2. Write a Python program to get the n (non-negative integer) copies of the first 2 characters of a given string. Return the n copies of the whole string if the length is less than 2.
+   2. Write a Python program to get the n (non-negative integer) copies of the first 2 characters of a given string. Return the n copies of the whole string if the length is less than 2.
      def substring_copy(str, n):
   flen = 2
   if flen > len(str):
@@ -238,44 +214,6 @@ print("Even Elements Tuple:",evenTup)
 
 print("odd Elements Tuple:",oddTup)
      
-Programs on sets:
-
-    11. Write a program that generates a set of prime numbers and another set of odd numbers. Demonstrate the result of union, intersection, difference, and symmetric difference operations on these sets.
-
-odds = set([x*2+1 for x in range(1,10)])
-print(odds,end='\n')
-primes=set()
-for i in range(2, 20):
-    j=2
-    flag = 0
-    while j<(i//2):
-        if i%j ==0:
-            flag = 1
-        j+=1
-    if flag==0:
-        primes.add(i)
-print(primes,end='\n')
-print("UNION : ",odds.union(primes))
-print("INTERSECTION : ", odds.intersection(primes))
-print("SYMMETRIC DIFFERENCE : ", odds.symmetric_difference(primes))
-print("DIFFERENCE : ", odds.difference(primes)) 
-program on Dictionary
-    12. Write a program that has dictionary of names of students and a list of their marks in 4 subjects. Create another dictionary from this dictionary that has name of the students and their total marks. Find out the topper and his/her score.
-
-Marks ={ 'Neha' : [97,89,94, 90], 'Mitul' :[92,91,94,87], 'Shefali' : [67,99, 88,90]}
-tot=0
-Tot_Marks = Marks.copy()
-for key, val in Marks.items():
-    tot = sum(val)
-    Tot_Marks[key] = tot
-print(Tot_Marks)
-max = 0
-Topper = ' '
-for key, val in Tot_Marks.items():
-    if val>max:
-        max = val
-        Topper = key
-print("Topper is : ", Topper, "with marks =" , max)
 
 
 
