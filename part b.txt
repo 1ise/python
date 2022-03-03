@@ -1,0 +1,546 @@
+	11.Write a python program to read a word and define a function that checks if a word contains three consecutive double letters or not.
+
+def is_triple_double(word):
+    i = 0
+    count = 0
+    while i < len(word)-1:
+        if word[i] == word[i+1]:
+            count = count + 1
+            if count == 3:
+                return True
+            i = i + 2
+        else:
+            i = i + 1
+    return False
+
+
+def find_triple_double():
+    fin = input("Enter a word: ")
+           
+    res=is_triple_double(fin)
+    if res:
+       print("Three consecutive double letter found in word:",fin)
+    else:
+        print("Three consecutive double letter not found in word:",fin)
+find_triple_double()
+
+
+	12.Write a program to sort a given tuple, in the sorted tuple the value of the first element should be maximum, the second value should be the minimum, the third should be the second maximum, the forth should be the second minimum and so on.
+
+tup=(2,3,4,5,6,7)
+res_tup = ()
+high = len(tup)-1
+low=0
+flag=1
+for i in tup:
+                if(flag):
+                    res_tup=res_tup+(tup[high],)
+                    high=high-1
+                else:
+                        res_tup=res_tup+(tup[low],)
+                        low=low+1
+                flag = not flag
+print(res_tup)
+
+	13.Write a program that generates a set of prime numbers and another set of odd numbers. Demonstrate the result of union, intersection, difference, and symmetric difference operations on these sets.
+
+odds = set([x*2+1 for x in range(0,20)])
+print("Set of odd numbers:",odds,end='\n')
+primes=set()
+for i in range(2, 20):
+    j=2
+    flag = 0
+    while j<(i//2):
+        if i%j ==0:
+            flag = 1
+        j+=1
+    if flag==0:
+        primes.add(i)
+print("Set of prime numbers:",primes,end='\n')
+print("UNION : ",odds.union(primes))
+print("INTERSECTION : ", odds.intersection(primes))
+print("SYMMETRIC DIFFERENCE : ", odds.symmetric_difference(primes))
+print("DIFFERENCE : ", odds.difference(primes)) 
+
+
+	14.Write a program that has a dictionary of names of students and a list of their marks in 4 subjects. Create another dictionary from this dictionary that has the name of the students and their total marks. Find out the topper and his/her score.
+
+Marks ={ 'AMAR' : [97,89,94, 90], 'VIJETH S GOWDA' :[92,91,94,87], 'ARUN GOWDA' : [67,99, 88,90]}
+tot=0
+Tot_Marks = Marks.copy()
+for key, val in Marks.items():
+    tot = sum(val)
+    Tot_Marks[key] = tot
+print(Tot_Marks)
+max = 0
+Topper = ' '
+for key, val in Tot_Marks.items():
+    if val>max:
+        max = val
+        Topper = key
+print("Topper is ", Topper, "with marks =" , max)
+
+
+	15.Write a program to copy line by line from a file to another and count the number of words, spaces, newline character, percentage of vowels and consonants in the file.
+
+file_to_read='Readdata.txt'
+file_to_write='Writedata.txt'
+file= open(file_to_read,'r')
+data=file.readlines()
+file.close()
+with open(file_to_write,"a")as file:
+    for s in data:
+        file.write(s)
+        with open(file_to_write)as file:
+            text=file.read()
+            count_space=0
+            count_nl=0
+            count_consonant=0
+            count_words=0
+            for char in text:
+                if char==' ':
+                    count_space+=1
+                    if char=='\n':
+                        count_nl+=1
+                        if char in 'aeiou':
+                            count_consonant+=1
+                            words=text.split()
+                            count_words+=len(words)
+                            print("Spaces:",count_space)
+                            print("New line:",count_nl)
+                            print("Words:",count_words)
+                            print("Percentage of vowels:",int((count_vowels)*100/len(text)),'%')
+                            print("Percentage of consonants:",int((count_consonants)*100/len(text)),'%')
+
+
+
+Python Programming lab
+
+	16.Write a program to create a text file “MyFile.txt” and write a few lines into it. Replace all the spaces from text with - (dash).
+
+i=0
+n=int(input("Enter number of lines to write to a file"))
+with open("MyFile.txt","a") as f1:
+    while i<=n:
+        text = input("Enter text to append in the file:")
+        f1.writelines(text)
+        i=i+1
+with open("MyFile.txt","r") as f1:
+    data = f1.readlines()
+    data=data.replace(' ','-')
+with open("MyFile.txt","w") as f1:
+        f1.write(data)
+
+
+17.	Using numpy, perform the following:
+●	Create a 3x4 matrix filled with values from 10 to 21.
+import numpy as np
+m= np.arange(10,22).reshape((3, 4))
+print(m)
+Output:
+[[10 11 12 13]
+ [14 15 16 17]
+ [18 19 20 21]]
+
+●	Create a 3x3 matrix and print the elements of the highlighted matrix shown in below figures.          
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+                         (a)                                         (b)                               (c)                              (d)
+●	Create an element-wise comparison (greater, greater_equal, less and less_equal,equal, not_eqaul) of any two arrays each having a size of 2x2x3.
+                                        import numpy as np
+x = np.array([[[ 2,  3,  4],
+  [ 5,  6,  7]],
+ [[ 8,  9, 10],
+  [11, 1, 13]]])
+y = np.array([[[12, 13, 14],
+  [15, 1, 17]],
+ [[18, 19, 20],
+  [21, 2, 23]]])
+
+print("Original numbers:")
+print(x)
+print(y)
+print("Comparison - greater")
+print(np.greater(x, y))
+print("Comparison - greater_equal")
+print(np.greater_equal(x, y))
+print("Comparison - less")
+print(np.less(x, y))
+print("Comparison - less_equal")
+print(np.less_equal(x, y))
+
+Output:
+
+Original numbers:
+[[[ 2  3  4]
+  [ 5  6  7]]
+
+ [[ 8  9 10]
+  [11  1 13]]]
+[[[12 13 14]
+  [15  1 17]]
+
+ [[18 19 20]
+  [21  2 23]]]
+Comparison - greater
+[[[False False False]
+  [False  True False]]
+
+ [[False False False]
+  [False False False]]]
+Comparison - greater_equal
+[[[False False False]
+  [False  True False]]
+
+ [[False False False]
+  [False False False]]]
+Comparison - less
+[[[ True  True  True]
+  [ True False  True]]
+
+ [[ True  True  True]
+  [ True  True  True]]]
+Comparison - less_equal
+[[[ True  True  True]
+  [ True False  True]]
+
+ [[ True  True  True]
+  [ True  True  True]]]
+
+●	Compute sum of all elements, sum of each column and sum of each row of a given array.
+x = np.array([[0,1],[2,3]])
+print("Original array:")
+print(x)
+print("Sum of all elements:")
+print(np.sum(x))
+print("Sum of each column:")
+print(np.sum(x, axis=0))
+print("Sum of each row:")
+print(np.sum(x, axis=1))
+
+Output:
+Original array:
+[[0 1]
+ [2 3]]
+Sum of all elements:
+6
+Sum of each column:
+[2 4]
+Sum of each row:
+[1 5]
+
+18.	Using numpy, perform the following:
+●	 Compute the x and y coordinates for points on a sine curve and plots the points using matplotlib.
+
+import numpy as np
+import matplotlib.pyplot as plt
+# Compute the x and y coordinates for points on a sine curve
+x = np.arange(0, 3 * np.pi, 0.2)
+y = np.sin(x)
+print("Plot the points using matplotlib:")
+plt.plot(x, y)
+plt.show()
+
+Output:
+Plot the points using matplotlib:
+
+ 
+
+●	 Create a 3x4 matrix and find any missing data, number of zeros in a given array.
+              nums = np.array([[3, 0, np.nan, 1], [10, 12, 0, 9],[5, np.nan, 1, np.nan]])
+print("Original array:") 
+print(nums)
+print("\nMissing data of the said array:")
+print(np.isnan(nums))
+print("\nNumber of zeros in a given array:",nums.size-np.count_nonzero(nums))
+
+Output:
+Original array:
+[[ 3.  0. nan  1.]
+ [10. 12.  0.  9.]
+ [ 5. nan  1. nan]]
+
+Missing data of the said array:
+[[False False  True False]
+ [False False False False]
+ [False  True False  True]]
+
+Number of zeros in a given array: 2
+
+
+●	Create a matrix of randomly generated data of shape (4, 4) and replace all positive values with 2 and all negative values with –2. 
+    arr = np.random.randn(4, 4)
+    print(arr)
+    np.where(arr > 0, 2, -2)
+
+Output:
+[[ 1.11960514  0.02707735  0.01637816  2.11162992]
+ [ 0.89251876 -0.22738665  0.08530356  1.35389111]
+ [-0.09071456  2.02610418  0.12614846 -1.04069065]
+ [-0.97317884  1.11388901 -1.58432008 -0.18095013]]
+Out[3]:
+array([[ 2,  2,  2,  2],
+       [ 2, -2,  2,  2],
+       [-2,  2,  2, -2],
+       [-2,  2, -2, -2]])
+
+
+
+●	Swap the rows and columns of given array in reverse order.
+     nums = np.array([[[1, 2, 3, 4], [0, 1, 3, 4], [90, 91, 93, 94], [5, 0, 3, 2]]])
+     print("Original array:")
+     print(nums)
+     print("\nSwap rows and columns in reverse order:")
+     new_nums = print(nums[::-1, ::-1])
+     print(new_nums)
+
+               Output:
+
+Original array:
+[[[ 1  2  3  4]
+  [ 0  1  3  4]
+  [90 91 93 94]
+  [ 5  0  3  2]]]
+
+Swap rows and columns in reverse order:
+[[[ 5  0  3  2]
+  [90 91 93 94]
+  [ 0  1  3  4]
+  [ 1  2  3  4]]]
+
+
+
+
+
+
+
+●	Find common values between two arrays.
+       randnums1= np.random.randint(1,100, size=(3,3))
+       print("array 1:",randnums1)
+       randnums2= np.random.randint(1,100, size=(3,3))
+       print("array 2:",randnums2)
+       print("Common elements are:")
+       print(np.intersect1d(randnums1, randnums2))
+
+
+
+                        Output:
+array 1: [[90 14 14]
+ [77 47 36]
+ [99 42 13]]
+array 2: [[89 91 82]
+ [37 13 95]
+ [47 32  8]]
+Common elements are:
+[13 47]
+
+19.	Using Pandas, perform the following:
+●	Convert a numpy array and dictionary to a Pandas series. 
+      import numpy as np
+      import pandas as pd
+      np_array = np.array([10, 20, 30, 40, 50])
+      print("NumPy array:")
+      print(np_array)
+      new_series = pd.Series(np_array)
+      print("Converted array to Pandas series:")
+      print(new_series)
+      dct = {'Sunday':1,'Monday':2,'Tuesday':3,'Wednesday':4,'Thursday':5,
+       'Friday':6,'Saturday':7}
+      new_series1 = pd.Series(dct)       
+      print("Converted array to Pandas series:")
+      print(new_series1)
+
+
+                             Output:
+NumPy array:
+[10 20 30 40 50]
+Converted array to Pandas series:
+0    10
+1    20
+2    30
+3    40
+4    50
+dtype: int64
+Converted array to Pandas series:
+Sunday       1
+Monday       2
+Tuesday      3
+Wednesday    4
+Thursday     5
+Friday       6
+Saturday     7
+dtype: int64
+
+
+
+●	Convert Series of lists to one Series and sort the values.
+         import pandas as pd
+         s = pd.Series([
+                                   ['Red', 'Green', 'White'],
+                                   ['Red', 'Black'],
+                                   ['Yellow']])
+         print("Original Series of list")
+         print(s)
+         s = s.apply(pd.Series).stack().reset_index(drop=True)
+         print("One Series")
+         print(s)
+         new_s = pd.Series(s).sort_values()
+         print("After sorting")
+         print(new_s)
+         
+             Output:
+Original Series of list
+0    [Red, Green, White]
+1                  [Red, Black]
+2                         [Yellow]
+dtype: object
+One Series
+0       Red
+1     Green
+2     White
+3       Red
+4     Black
+5    Yellow
+dtype: object
+After sorting
+4     Black
+1     Green
+0       Red
+3       Red
+2     White
+5    Yellow
+dtype: object
+
+
+●	Find the positions of numbers that are multiples of 5 of a given integer number series.
+       
+●	Find the number of occurrences of each unique value in a Series.
+       df = pd.DataFrame({"col1": ["a", "b", "a", "c", "a", "a", "a", "c"]})
+       print(df)
+       item_counts = df["col1"].value_counts()
+       print("Number of occurence of each unique value")
+       print(item_counts)
+Output
+col1
+0    a
+1    b
+2    a
+3    c
+4    a
+5    a
+6    a
+7    c
+Number of occurence of each value
+a    5
+c    2
+b    1
+Name: col1, dtype: int64
+
+
+●	Get the positions of items of a given series in another given series.
+             series1 = pd.Series([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+series2 = pd.Series([1, 3, 5, 7, 10])
+print("Original Series:")
+print(series1)
+print(series2)
+result = [pd.Index(series1).get_loc(i) for i in series2]
+print("Positions of items of series2 in series1:")
+print(result)
+
+Output
+Original Series:
+0     1
+1     2
+2     3
+3     4
+4     5
+5     6
+6     7
+7     8
+8     9
+9    10
+dtype: int64
+0     1
+1     3
+2     5
+3     7
+4    10
+dtype: int64
+Positions of items of series2 in series1:
+[0, 2, 4, 6, 9]
+
+
+
+20.	Using Pandas, perform the following:
+●	Create and display a dataFrame from a dictionary of names of the student, subjects, grade of respective subject, number of each attempt and qualify data which has the index labels.
+                           
+exam_data  = {'name': ['Anil', 'Avinash', 'Kaveri', 'James', 'kavitha', 'Pushpa'],
+                         'Subjects': ["Kannada", "English", "Hindi", "Tamil", "Telagu", "Gujarathi"],
+                         'attempts': [1, 3, 2, 3, 2, 3, ],
+                         'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes']}
+labels = ['a', 'b', 'c', 'd', 'e', 'f']
+
+df = pd.DataFrame(exam_data , index=labels)
+print(df)
+
+Output:
+
+    name   Subjects    attempts   qualify
+a     Anil    Kannada           1         yes
+b  Avinash    English          3          no
+c   Kaveri      Hindi             2           yes
+d    James      Tamil            3           no
+e  kavitha     Telagu           2           no
+f   Pushpa  Gujarathi         3         yes
+
+●	Display the details of a specified student.
+                   df = pd.DataFrame(exam_data , index=labels)
+                   print(df.iloc[:1])
+output:
+   name Subjects  attempts qualify
+a  Anil  Kannada         1     yes
+
+
+●	Select the rows where the number of attempts in the examination is greater than 2 and score less than 40.
+●	Select the rows where the number of attempts in the examination is less than 2 and score greater than 15.
+●	Sort the data frame first by 'name' in descending order, then by 'score' in ascending order.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
