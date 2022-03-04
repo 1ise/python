@@ -115,9 +115,9 @@ with open(file_to_write)as file:
         if char not in 'aeiou':
             count_consonants+=1
         words=text.split()
-        count_words+=len(words)
-print("Spaces:",count_space)
-print("New line:",count_nl)
+        count_words=len(words)
+print("Spaces:",count_space-1)
+print("New line:",count_nl+1)
 print("Words:",count_words)
 print("Percentage of vowels:",int((count_vowels)*100/len(text)),'%')
 print("Percentage of consonants:",int((count_consonants)*100/len(text)),'%')
