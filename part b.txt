@@ -157,24 +157,6 @@ Output:
 
 ●	Create a 3x3 matrix and print the elements of the highlighted matrix shown in below figures.          
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-
-
-                         (a)                                         (b)                               (c)                              (d)
-			 
-
-
 import numpy as np
 d=np.random.randint(1,9,size=(3,3))
 print(d)
@@ -186,22 +168,6 @@ print("Fig.c")
 print(d[:,1])
 print("Fig.d")
 print(d[2,:])
-
-Output:
-[[8 7 5]
- [7 2 8]
- [2 3 6]]
-Fig.a
-[[7 5]
- [2 8]]
-Fig.b
-[[2 8]
- [3 6]]
-Fig.c
-[7 2 3]
-Fig.d
-[2 3 6]
-
 
 ●	Create an element-wise comparison (greater, greater_equal, less and less_equal,equal, not_eqaul) 
 	of any two arrays each having a size of 2x2x3.
@@ -228,43 +194,6 @@ print(np.less(x, y))
 print("Comparison - less_equal")
 print(np.less_equal(x, y))
 
-Output:
-
-Original numbers:
-[[[ 2  3  4]
-  [ 5  6  7]]
-
- [[ 8  9 10]
-  [11  1 13]]]
-[[[12 13 14]
-  [15  1 17]]
-
- [[18 19 20]
-  [21  2 23]]]
-Comparison - greater
-[[[False False False]
-  [False  True False]]
-
- [[False False False]
-  [False False False]]]
-Comparison - greater_equal
-[[[False False False]
-  [False  True False]]
-
- [[False False False]
-  [False False False]]]
-Comparison - less
-[[[ True  True  True]
-  [ True False  True]]
-
- [[ True  True  True]
-  [ True  True  True]]]
-Comparison - less_equal
-[[[ True  True  True]
-  [ True False  True]]
-
- [[ True  True  True]
-  [ True  True  True]]]
 
 ●	Compute sum of all elements, sum of each column and sum of each row of a given array.
 
@@ -278,16 +207,7 @@ print(np.sum(x, axis=0))
 print("Sum of each row:")
 print(np.sum(x, axis=1))
 
-Output:
-Original array:
-[[0 1]
- [2 3]]
-Sum of all elements:
-6
-Sum of each column:
-[2 4]
-Sum of each row:
-[1 5]
+
 
 18.	Using numpy, perform the following:
 ●	 Compute the x and y coordinates for points on a sine curve and plots the points using matplotlib.
@@ -315,16 +235,7 @@ print("\nMissing data of the said array:")
 print(np.isnan(nums))
 print("\nNumber of zeros in a given array:",nums.size-np.count_nonzero(nums))
 
-Output:
-Original array:
-[[ 3.  0. nan  1.]
- [10. 12.  0.  9.]
- [ 5. nan  1. nan]]
 
-Missing data of the said array:
-[[False False  True False]
- [False False False False]
- [False  True False  True]]
 
 Number of zeros in a given array: 2
 
@@ -335,16 +246,6 @@ Number of zeros in a given array: 2
     print(arr)
     np.where(arr > 0, 2, -2)
 
-Output:
-[[ 1.11960514  0.02707735  0.01637816  2.11162992]
- [ 0.89251876 -0.22738665  0.08530356  1.35389111]
- [-0.09071456  2.02610418  0.12614846 -1.04069065]
- [-0.97317884  1.11388901 -1.58432008 -0.18095013]]
-Out[3]:
-array([[ 2,  2,  2,  2],
-       [ 2, -2,  2,  2],
-       [-2,  2,  2, -2],
-       [-2,  2, -2, -2]])
 
 
 
@@ -357,25 +258,6 @@ array([[ 2,  2,  2,  2],
      new_nums = print(nums[::-1, ::-1])
      print(new_nums)
 
-               Output:
-
-Original array:
-[[[ 1  2  3  4]
-  [ 0  1  3  4]
-  [90 91 93 94]
-  [ 5  0  3  2]]]
-
-Swap rows and columns in reverse order:
-[[[ 5  0  3  2]
-  [90 91 93 94]
-  [ 0  1  3  4]
-  [ 1  2  3  4]]]
-
-
-
-
-
-
 
 ●	Find common values between two arrays.
        
@@ -386,17 +268,6 @@ Swap rows and columns in reverse order:
        print("Common elements are:")
        print(np.intersect1d(randnums1, randnums2))
 
-
-
-                        Output:
-array 1: [[90 14 14]
- [77 47 36]
- [99 42 13]]
-array 2: [[89 91 82]
- [37 13 95]
- [47 32  8]]
-Common elements are:
-[13 47]
 
 19.	Using Pandas, perform the following:
 ●	Convert a numpy array and dictionary to a Pandas series. 
@@ -416,28 +287,6 @@ Common elements are:
       print(new_series1)
 
 
-                             Output:
-NumPy array:
-[10 20 30 40 50]
-Converted array to Pandas series:
-0    10
-1    20
-2    30
-3    40
-4    50
-dtype: int64
-Converted array to Pandas series:
-Sunday       1
-Monday       2
-Tuesday      3
-Wednesday    4
-Thursday     5
-Friday       6
-Saturday     7
-dtype: int64
-
-
-
 ●	Convert Series of lists to one Series and sort the values.
 
 import pandas as pd
@@ -452,32 +301,6 @@ s = pd.Series([['Red', 'Green', 'White'],
          new_s = pd.Series(s).sort_values()
          print("After sorting")
          print(new_s)
-         
-	 
-Output:
-
-Original Series of list
-0    [Red, Green, White]
-1                  [Red, Black]
-2                         [Yellow]
-dtype: object
-One Series
-0       Red
-1     Green
-2     White
-3       Red
-4     Black
-5    Yellow
-dtype: object
-After sorting
-4     Black
-1     Green
-0       Red
-3       Red
-2     White
-5    Yellow
-dtype: object
-
 
 ●	Find the positions of numbers that are multiples of 5 of a given integer number series.
 
@@ -497,23 +320,6 @@ item_counts = df["col1"].value_counts()
 print("Number of occurence of each unique value")
 print(item_counts)
 
-Output:
-
-col1
-0    a
-1    b
-2    a
-3    c
-4    a
-5    a
-6    a
-7    c
-Number of occurence of each value
-a    5
-c    2
-b    1
-Name: col1, dtype: int64
-
 
 ●	Get the positions of items of a given series in another given series.
              
@@ -525,29 +331,6 @@ print(series2)
 result = [pd.Index(series1).get_loc(i) for i in series2]
 print("Positions of items of series2 in series1:")
 print(result)
-
-Output
-Original Series:
-0     1
-1     2
-2     3
-3     4
-4     5
-5     6
-6     7
-7     8
-8     9
-9    10
-dtype: int64
-0     1
-1     3
-2     5
-3     7
-4    10
-dtype: int64
-Positions of items of series2 in series1:
-[0, 2, 4, 6, 9]
-
 
 
 	20.Using Pandas, perform the following:
@@ -567,26 +350,11 @@ df = pd.DataFrame(exam_data , index=labels)
 print(df)
 
 
-Output:
-
-     name   Subjects  attempts qualify  Score
-a     Anil    Kannada         1        yes         30
-b  Avinash    English        3        no         12
-c   Kaveri      Hindi            2       yes        32
-d    James      Tamil          3        no        14
-e  kavitha     Telagu         2        no         8
-f   Pushpa  Gujarathi       3      yes        40
-
-
     
 • 	Display the details of a specified student.
                    
 df = pd.DataFrame(exam_data , index=labels)
 print(df.iloc[:1])
-
-output:
-    name   Subjects  attempts qualify  Score
-a     Anil    Kannada         1        yes         30
 
 
 
@@ -595,12 +363,6 @@ a     Anil    Kannada         1        yes         30
 print("Number of attempts in the examination is greater than 2 and score less than 40 :")
 print(df[(df['attempts'] > 2) & (df['Score'] < 40)])
 
-Output:
-Number of attempts in the examination is greater than 2 and scores less than 40:
-      name   Subjects  attempts qualify  Score
-b  Avinash  English         3              no     12
-d    James    Tamil          3              no     14
-
                                     
 
 • Select the rows where the number of attempts in the examination is less than 2 and score greater than 15.
@@ -608,33 +370,9 @@ d    James    Tamil          3              no     14
 print("Number of attempts in the examination is less than 2 and score greater than 15 :")
 print(df[(df['attempts'] < 2) & (df['Score'] > 15)])
 
-Output:
-
-Number of attempts in the examination is less than 2 and score greater than 15 :
-   name Subjects  attempts qualify  Score
-a  Anil  Kannada         1             yes     30
-
 • 	Sort the data frame first by 'name' in descending order, then by 'score' in ascending order.
 
 print("'name' in descending order")
 print(df.sort_values(by=['name','Score'],ascending=[True,False]))
 print("'Score' in ascending order")
 print(df.sort_values(by=['name','Score'],ascending=[False,True]))
-
-Output:
-'name' in descending order
-      name   Subjects   attempts qualify  Score
-a     Anil       Kannada        1         yes        30
-b  Avinash    English          3         no         12
-d    James      Tamil           3         no         14
-c   Kaveri      Hindi             2        yes         32
-f   Pushpa  Gujarathi         3       yes         40
-e  kavitha     Telagu          2         no          8
-'Score' in ascending order
-      name   Subjects  attempts   qualify  Score
-e  kavitha     Telagu          2             no      8
-f   Pushpa  Gujarathi        3           yes     40
-c   Kaveri      Hindi            2            yes     32
-d    James      Tamil          3             no     14
-b  Avinash    English        3             no     12
-a     Anil    Kannada         1             yes     30
