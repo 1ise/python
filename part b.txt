@@ -130,18 +130,23 @@ Python Programming lab
 	16.Write a program to create a text file “MyFile.txt” and write a few lines into it. 
 	Replace all the spaces from text with - (dash).
 
-i=0
-n=int(input("Enter number of lines to write to a file"))
-with open("MyFile.txt","a") as f1:
-    while i<=n:
-        text = input("Enter text to append in the file:")
-        f1.writelines(text)
-        i=i+1
-with open("MyFile.txt","r") as f1:
-    data = f1.readlines()
-    data=data.replace(' ','-')
-with open("MyFile.txt","w") as f1:
-        f1.write(data)
+f1=open("abcd.txt","x")
+i=1
+n=int(input("enter the lines: "))
+f1=open("abcd.txt","w")
+while i<=n:
+    f1.write(input("Enter the text: "))
+    i=i+1
+f1=open("abcd.txt","r")
+data=f1.read()
+print(data)
+data=data.replace(' ','-')
+f1.close()
+f1=open("abcd.txt","w")
+f1.write(data)
+f1=open("abcd.txt","r")
+print(f1.read())
+f1.close()
 
 
 17.	Using numpy, perform the following:
