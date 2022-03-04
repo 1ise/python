@@ -87,8 +87,8 @@ for key, val in Tot_Marks.items():
 print("Topper is ", Topper, "with marks =" , max)
 
 
-	15.Write a program to copy line by line from a file to another and count the 
-	number of words, spaces, newline character, percentage of vowels and consonants in the file.
+15.Write a program to copy line by line from a file to another and count the 
+number of words, spaces, newline character, percentage of vowels and consonants in the file.
 
 file_to_read='Readdata.txt'
 file_to_write='Writedata.txt'
@@ -98,26 +98,29 @@ file.close()
 with open(file_to_write,"a")as file:
     for s in data:
         file.write(s)
-        with open(file_to_write)as file:
-            text=file.read()
-            count_space=0
-            count_nl=0
-            count_consonant=0
-            count_words=0
-            for char in text:
-                if char==' ':
-                    count_space+=1
-                    if char=='\n':
-                        count_nl+=1
-                        if char in 'aeiou':
-                            count_consonant+=1
-                            words=text.split()
-                            count_words+=len(words)
-                            print("Spaces:",count_space)
-                            print("New line:",count_nl)
-                            print("Words:",count_words)
-                            print("Percentage of vowels:",int((count_vowels)*100/len(text)),'%')
-                            print("Percentage of consonants:",int((count_consonants)*100/len(text)),'%')
+with open(file_to_write)as file:
+ 	text=file.read()
+        count_space=0
+        count_nl=0
+        count_consonant=0
+	count_vowels=0
+        count_words=0
+        for char in text:
+            if char==' ':
+                count_space+=1
+            if char=='\n':
+                 count_nl+=1
+	    if char in 'aeiou:
+	    	count_vowels+=1
+            if char not in 'aeiou':
+                 count_consonant+=1
+	words=text.split()
+		count_words+=len(words)
+print("Spaces:",count_space)
+print("New line:",count_nl)
+print("Words:",count_words)
+print("Percentage of vowels:",int((count_vowels)*100/len(text)),'%')
+print("Percentage of consonants:",int((count_consonants)*100/len(text)),'%')
 
 
 
